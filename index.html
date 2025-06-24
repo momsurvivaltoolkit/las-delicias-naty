@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Delicias de Naty - Auténtica Comida de Mar Afrocolombiana</title>
     <style>
+        html {
+            margin: 0;
+            padding: 0;
+            background: var(--crema-coco);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +21,9 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fff;
+            background: linear-gradient(135deg, var(--crema-coco), var(--arena-playa));
+            margin: 0;
+            padding: 0;
         }
 
         :root {
@@ -36,7 +44,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000;
+            z-index: 9999;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             border-bottom: 3px solid var(--dorado-sol);
         }
@@ -95,8 +103,8 @@
         .section {
             display: none;
             min-height: 100vh;
-            padding-top: 80px;
             margin: 0;
+            padding: 0;
         }
 
         .section.active {
@@ -106,29 +114,36 @@
         /* Remove gaps between sections */
         .hero, .about, .menu, .gallery, .contact, .quote {
             margin: 0;
-            padding-top: 80px;
-            padding-bottom: 80px;
+            padding: 0;
+        }
+
+        .hero {
+            padding-top: 0;
+        }
+
+        .about, .menu, .gallery, .contact {
+            padding: 120px 0 80px 0;
         }
 
         .quote {
-            margin: 0;
-            padding-top: 60px;
-            padding-bottom: 60px;
+            padding: 120px 0 60px 0;
         }
 
-        /* Home Section - Override for hero */
+        /* Section-specific padding */
         #home {
-            padding-top: 0;
+            padding: 0;
         }
 
-        #home .hero {
-            padding-top: 0;
+        #about, #menu, #gallery, #contact {
+            padding-top: 80px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* Hero Section */
@@ -199,12 +214,8 @@
 
         /* About Section */
         .about {
-            padding: 80px 0;
-            background: 
-                linear-gradient(rgba(254, 249, 231, 0.9), rgba(247, 220, 111, 0.9)),
-                url('https://images.unsplash.com/photo-1574736797875-4fc5c51d8f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+            padding: 120px 0 80px 0;
+            background: var(--crema-coco);
             position: relative;
             margin: 0;
         }
@@ -216,8 +227,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(139, 69, 19, 0.05);
+            background: 
+                linear-gradient(rgba(254, 249, 231, 0.3), rgba(247, 220, 111, 0.3)),
+                url('https://images.unsplash.com/photo-1574736797875-4fc5c51d8f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             pointer-events: none;
+            opacity: 0.2;
         }
 
         .about-content {
@@ -259,12 +275,24 @@
 
         /* Menu Section */
         .menu {
-            padding: 80px 0;
+            padding: 120px 0 80px 0;
+            background: var(--arena-playa);
+            position: relative;
+        }
+
+        .menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: 
-                linear-gradient(rgba(254, 249, 231, 0.7), rgba(254, 249, 231, 0.7)),
                 url('https://images.unsplash.com/photo-1574736797875-4fc5c51d8f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
-            background-attachment: fixed;
+            background-position: center;
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .menu h2 {
@@ -333,12 +361,24 @@
 
         /* Gallery Section */
         .gallery {
-            padding: 80px 0;
+            padding: 120px 0 80px 0;
+            background: var(--crema-coco);
+            position: relative;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: 
-                linear-gradient(rgba(139, 69, 19, 0.1), rgba(44, 62, 80, 0.1)),
                 url('https://images.unsplash.com/photo-1587395651227-bc4d64e7b6b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
-            background-attachment: fixed;
+            background-position: center;
+            opacity: 0.15;
+            pointer-events: none;
         }
 
         .gallery h2 {
@@ -394,12 +434,24 @@
 
         /* Contact Section */
         .contact {
-            padding: 80px 0;
+            padding: 120px 0 80px 0;
+            background: var(--arena-playa);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: 
-                linear-gradient(rgba(254, 249, 231, 0.8), rgba(254, 249, 231, 0.8)),
                 url('https://images.unsplash.com/photo-1574736797875-4fc5c51d8f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
-            background-attachment: fixed;
+            background-position: center;
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .contact h2 {
@@ -480,15 +532,12 @@
 
         /* Quote Section */
         .quote {
-            background: 
-                linear-gradient(rgba(139, 69, 19, 0.7), rgba(44, 62, 80, 0.7)),
-                url('https://images.unsplash.com/photo-1514317421278-ae7ad37b0e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            padding: 60px 0;
+            background: linear-gradient(135deg, var(--verde-selva), var(--cafe-madera));
+            padding: 120px 0 60px 0;
             text-align: center;
             color: var(--crema-coco);
             position: relative;
+            margin: 0;
         }
 
         .quote::before {
@@ -498,7 +547,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(139, 69, 19, 0.2);
+            background: 
+                url('https://images.unsplash.com/photo-1514317421278-ae7ad37b0e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
         .quote .container {
@@ -524,16 +578,13 @@
 
         /* Footer */
         footer {
-            background: 
-                linear-gradient(rgba(44, 62, 80, 0.8), rgba(139, 69, 19, 0.8)),
-                url('https://images.unsplash.com/photo-1514317421278-ae7ad37b0e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, var(--negro-carbon), var(--cafe-madera));
             color: var(--crema-coco);
             text-align: center;
             padding: 3rem 0;
             border-top: 4px solid var(--dorado-sol);
             position: relative;
+            margin: 0;
         }
 
         footer::before {
@@ -543,7 +594,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(44, 62, 80, 0.3);
+            background: 
+                url('https://images.unsplash.com/photo-1514317421278-ae7ad37b0e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            pointer-events: none;
         }
 
         footer .container {
@@ -621,6 +677,15 @@
 
             .gallery-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            /* Adjust padding for mobile */
+            .about, .menu, .gallery, .contact {
+                padding: 100px 0 60px 0;
+            }
+
+            .quote {
+                padding: 100px 0 40px 0;
             }
         }
     </style>
